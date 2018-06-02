@@ -1,0 +1,11 @@
+.jellyButton{
+    background-color: transparent;
+    width:200px;
+
+
+}
+
+#jelly1, #jelly2, #jelly3, #jelly4 {
+    max-width: 200px;
+    height: 136px;
+}
