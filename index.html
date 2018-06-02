@@ -1,0 +1,43 @@
+<!DOCtype <!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Jelly Bean Game</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+</head>
+<body background="assets/images/easter-paper.jpg">
+
+<h1>Jelly Bean Collector!</h1>
+
+<section class="Instructions">
+<p>You will be given a random goal number at the start of the game. 
+    When you click on a jellybean, it will add a specific amount of points to your score. Your goal is to click on jellybeans accordingly to
+    arrive at the exact goal total. If you go over, you lose!
+
+    The value of each jelly bean will reset at the start of each new game. Good Luck!
+</p>
+</section>
+
+<div id="Goal"></div>
+
+<section class="Score">
+<div id="Wins">Wins: </div>
+<br>
+<div id="Losses">Losses: </div>
+</section>
+
+<!-- Four buttons -->
+  <button id="jelly1" class="jellyButton"><img src="assets/images/jelly1.png"></button>
+  <button id="jelly2" class="jellyButton"><img src="assets/images/jelly2.png"></button>
+  <button id="jelly3" class="jellyButton"><img src="assets/images/jelly3.png"></button>
+  <button id="jelly4" class="jellyButton"><img src="assets/images/jelly4.png"></button>
+ 
+  <div id="ScoreHeader">Your total score is:</div>
+  <div id="Score"></div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/game.js"></script>
+</body>
+</html>
