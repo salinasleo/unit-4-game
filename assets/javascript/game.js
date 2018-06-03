@@ -34,14 +34,14 @@ function initialize() {
     }
     while (jelly1Pts === jelly4Pts || jelly2Pts === jelly4Pts || jelly3Pts === jelly4Pts);
 
-    $("#Goal").html("Your Goal is: <br><br>" + goalScore);
     $("#Score").html("<br>" + runningScore);
 };
 
 do {
     initialize();
-    $("#Wins").html("Wins: " + wins); 
-    $("#Losses").html("Losses: " + losses); 
+    $("#Wins").html("Wins: " + wins);
+    $("#Losses").html("Losses: " + losses);
+    $("#Goal").html("Your Goal is: <br><br>" + goalScore);
 } while (stillPlaying = 0);
 // initialize at start and after each new game
 // i couldn't get this mechanism to work as a reset mechanism after button click, 
@@ -54,16 +54,16 @@ function compare(runningScore) {
 
     if (runningScore === goalScore) {
         wins++;
-        $("#Wins").html("Wins: " + wins); 
         stillPlaying = 0;
+        celebration();
         initialize();
         return;
     };
 
     if (runningScore > goalScore) {
         losses++;
-        $("#Losses").html("Losses: " + losses); 
         stillPlaying = 0;
+        lost();
         initialize();
     };
 
@@ -90,3 +90,76 @@ $("body").on("click", "#jelly4", function () {
     compare(runningScore);
 });
 
+
+function celebratePos1() {
+    $("#jelly1").css("background-image", "url('assets/images/jelly2.png'");
+    $("#jelly2").css("background-image", "url('assets/images/jelly3.png'");
+    $("#jelly3").css("background-image", "url('assets/images/jelly4.png'");
+    $("#jelly4").css("background-image", "url('assets/images/jelly1.png'");
+    console.log("celebrateposition1");
+};
+function celebratePos2() {
+    $("#jelly1").css("background-image", "url('assets/images/jelly3.png'");
+    $("#jelly2").css("background-image", "url('assets/images/jelly4.png'");
+    $("#jelly3").css("background-image", "url('assets/images/jelly1.png'");
+    $("#jelly4").css("background-image", "url('assets/images/jelly2.png'");
+    console.log("celebrateposition2");
+};
+function celebratePos3() {
+    $("#jelly1").css("background-image", "url('assets/images/jelly4.png'");
+    $("#jelly2").css("background-image", "url('assets/images/jelly1.png'");
+    $("#jelly3").css("background-image", "url('assets/images/jelly2.png'");
+    $("#jelly4").css("background-image", "url('assets/images/jelly3.png'");
+    console.log("celebrateposition3");
+};
+function celebratePos4() {
+    $("#jelly1").css("background-image", "url('assets/images/jelly1.png'");
+    $("#jelly2").css("background-image", "url('assets/images/jelly2.png'");
+    $("#jelly3").css("background-image", "url('assets/images/jelly3.png'");
+    $("#jelly4").css("background-image", "url('assets/images/jelly4.png'");
+    console.log("celebrateposition4");
+};
+function lossPos1() {
+    $("#jelly1").css("background-image", "url('assets/images/jelly5.png'");
+    $("#jelly2").css("background-image", "url('assets/images/jelly5.png'");
+    $("#jelly3").css("background-image", "url('assets/images/jelly5.png'");
+    $("#jelly4").css("background-image", "url('assets/images/jelly5.png'");
+    console.log("celebrateposition1");
+};
+
+function updateWins() {
+    $("#Wins").html("Wins: " + wins);
+};
+
+function updateLosses() {
+    $("#Losses").html("Losses: " + losses);
+};
+
+function updateGoal() {
+    $("#Goal").html("Your Goal is: <br><br>" + goalScore);
+};
+
+
+function celebration() {
+    setTimeout(celebratePos1, 100 * 2);
+    setTimeout(celebratePos2, 100 * 4);
+    setTimeout(celebratePos3, 100 * 6);
+    setTimeout(celebratePos4, 100 * 8);
+    setTimeout(celebratePos1, 100 * 9);
+    setTimeout(celebratePos2, 100 * 10);
+    setTimeout(celebratePos3, 100 * 11);
+    setTimeout(celebratePos4, 100 * 12);
+    setTimeout(updateWins, 100 * 12.1);
+    setTimeout(updateGoal, 100 * 12.2);
+};
+
+function lost() {
+    setTimeout(lossPos1, 100 * 2);
+    setTimeout(celebratePos4, 100 * 6);
+    setTimeout(lossPos1, 100 * 7);
+    setTimeout(celebratePos4, 100 * 10);
+    setTimeout(lossPos1, 100 * 11);
+    setTimeout(celebratePos4, 100 * 12);
+    setTimeout(updateLosses, 100 * 12.1);
+    setTimeout(updateGoal, 100 * 12.2);
+};
